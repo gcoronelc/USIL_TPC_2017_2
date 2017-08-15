@@ -8,6 +8,11 @@
 - Lugar: INSTITUTO EMPRENDEDORES
 - Inicio: 15-AGOSTO-2017
 
+# HORARIO
+
+- Martes: 10:50 a 12:30 en el C5C202
+- Jueves: 10:50 a 12:30 en el C5D501
+
 # DOCENTE
 
 - Nombre: Eric Gustavo Coronel Castillo
@@ -16,6 +21,7 @@
 
 # RECURSOS RECOMENDADOS
 
+- Programador Java: http://gcoronelc.blogspot.pe/p/java.html
 - Seminario de Java JDBC: http://goo.gl/fHb2yf
 - Combos anidados usando AJAX: http://goo.gl/4W3ZaN
 - Problemas con el puerto 8080: http://goo.gl/2KYG1d
