@@ -1,0 +1,2 @@
+Calcular el promedio
+de un estudiante.
