@@ -11,11 +11,31 @@ import javax.servlet.http.HttpServletResponse;
 import pe.egcc.promapp.model.PromModel;
 import pe.egcc.promapp.service.PromService;
 
-@WebServlet(name = "AppController", urlPatterns = {"/AppController","/Panchito","/SpringMaster"})
+@WebServlet(name = "AppController",
+        urlPatterns = {"/Promedio", "/Saludo", "/Despedida"})
 public class AppController extends HttpServlet {
 
   @Override
-  protected void doPost(HttpServletRequest request,
+  protected void service(HttpServletRequest request,
+          HttpServletResponse response) throws ServletException, IOException {
+
+    String path = request.getServletPath();
+
+    switch (path) {
+
+      case "/Promedio":
+        promediar(request, response);
+        break;
+
+      case "/Saludo":
+        saludar(request, response);
+        break;
+
+    }
+
+  }
+
+  protected void promediar(HttpServletRequest request,
           HttpServletResponse response) throws ServletException, IOException {
 
     // Datos
@@ -36,6 +56,21 @@ public class AppController extends HttpServlet {
     rd = request.getRequestDispatcher("reporte.jsp");
     rd.forward(request, response);
 
+  }
+
+  private void saludar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head>");
+    out.println("<title>SALUDO</title>");
+    out.println("</head>");
+    out.println("<body>");
+    out.println("<h1>Hola todos.</h1>");
+    out.println("</body>");
+    out.println("</html>");
+    out.flush();
   }
 
 }
