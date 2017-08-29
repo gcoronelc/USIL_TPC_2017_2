@@ -21,6 +21,11 @@ Parametros
 - Porc. Gastos Publicidad: 8%
 - Porc. Gastos de Administración: 5%
 - Porc. Gastos de Materiales: 6%
+- Gastos de Equipos; 4%
+
+
+
+
 
 
 
