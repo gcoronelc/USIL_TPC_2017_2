@@ -1,0 +1,28 @@
+Desarrollar una aplicación
+para encontrar la rentabilidad
+de un curso.
+
+Input
+==========================
+- Nombre del curso
+- Precio
+- Horas
+- Cantidad Alumnos
+- Pago por Hora al Profesor
+
+Output
+============================
+- Ingresos
+- Gastos
+- Rentabilidad
+
+Parametros
+============================
+- Porc. Gastos Publicidad: 8%
+- Porc. Gastos de Administración: 5%
+- Porc. Gastos de Materiales: 6%
+
+
+
+
+
