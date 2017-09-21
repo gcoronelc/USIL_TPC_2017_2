@@ -29,6 +29,9 @@
 - ResultSet to List: http://goo.gl/OzHhjA
 - Pool de conexiones con Tomcat: http://goo.gl/ZdQQv0
 - Pool de conexiones con GlassFish: http://goo.gl/pyAt8d
+- Analisis y Diseño Orientado a Objetos: https://youtu.be/xyuyCoYKvy0
+- Pruebas de Software: https://youtu.be/pII2WpxJQg4
+- Pruebas de Cobertura: https://youtu.be/F0qx_WXz5Z8
 
 # JAVA WEB
 
