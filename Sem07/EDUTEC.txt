@@ -1,0 +1,15 @@
+- CASOS DE USO
+
+	. Crear o programar un ciclo
+	. Progragar un curso
+	. Matricula de un estudiante
+	. Registrar notas
+
+- OTROS CASOS DE USO
+
+	. Cambio de curso de estudiante
+	. Cancelar o anular matricula
+	. Cancelar un curso
+	
+	
+	
