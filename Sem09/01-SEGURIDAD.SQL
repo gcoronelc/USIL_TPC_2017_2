@@ -11,6 +11,7 @@ Blog           :  http://gcoronelc.blogspot.com
 Creado el      :  07-OCT-2017
 */
 
+
 -- =============================================
 -- Seleccionar la Base de Datos
 -- =============================================
