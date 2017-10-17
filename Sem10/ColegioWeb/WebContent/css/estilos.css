@@ -1,0 +1,32 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-color: #FFF8DC;
+	color: #800000;
+	font-size: 12px;
+	font-family: Arial;
+	padding: 5px;
+}
+
+h1{
+	font-size: 16px;
+	color: #2c3e50;
+	border-bottom: 2px solid #2c3e50;
+}
+
+.egcc_panel{
+	border: 2px solid #800000;
+	border-radius: 10px;
+	background-color:white;
+	color: #34495e;
+	margin: 5px;
+	padding: 5px;
+}
+
+.egcc_btn_default{
+	border: 1px solid #1E90FF;
+  border-radius: 5px;
+  background-color: #1E90FF;
+  color:white;	
+  height: 30px;
+}
