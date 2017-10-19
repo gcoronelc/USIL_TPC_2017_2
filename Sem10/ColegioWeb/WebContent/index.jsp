@@ -20,12 +20,15 @@
 </head>
 <body>
   <div id="LOGON">
+  	<div style="text-align: center;">
+  		<img src="img/logo.png"/>
+  	</div>
     <h1>INGRESO AL SISTEMA</h1>
   
-    <div class="egcc_panel" >
-      
       <form method="post" action="Ingresar">
     
+    	<div class="egcc_panel" >
+    	
 	      <table>
 	        
 	        <tr>
@@ -37,18 +40,16 @@
 	          <td>Clave:</td>
 	          <td><input type="password"  name="clave"/></td>
 	        </tr>
-	        
-	        <tr>
-	          <td colspan="2" >
-	            <input class="egcc_btn_default" type="submit" value="Ingresar" />
-	          </td>
-	        </tr>
+
 	        
 	      </table>
             
+          </div>
+          
+          <input class="egcc_btn_default" type="submit" value="Ingresar" />
       </form>
       
-    </div>
+    
   </div>
 </body>
 </html>

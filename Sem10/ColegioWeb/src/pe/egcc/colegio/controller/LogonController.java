@@ -32,6 +32,8 @@ public class LogonController extends HttpServlet {
     private void ingresar(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
 
+    	
+    	
       RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
       rd.forward(request, response);
       
