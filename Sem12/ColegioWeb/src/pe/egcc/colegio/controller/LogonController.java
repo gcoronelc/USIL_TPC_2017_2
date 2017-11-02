@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pe.egcc.colegio.model.Usuario;
+import pe.egcc.colegio.service.LogonService;
+
 @WebServlet({"/Ingresar", "/Salir"})
 public class LogonController extends HttpServlet {
 
@@ -31,15 +34,44 @@ public class LogonController extends HttpServlet {
 
     private void ingresar(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
+      
+      // Variable de control
+      String destino;
 
+    	// Datos
+      String usuario = request.getParameter("usuario");
+      String clave = request.getParameter("clave");
+      
+      
+      try {
+        
+        LogonService logonService = new LogonService();
+        Usuario bean = logonService.validar(usuario, clave);
+        
+        if( bean == null ){
+          throw new Exception("Datos incorrectos");
+        }
+        
+        UtilController.setSession(request,"usuario", bean);
+        
+        destino = "main.jsp";
+        
+      } catch (Exception e) {
+
+        request.setAttribute("error", e.getMessage());
+        destino = "index.jsp";
+      }
+      
     	
-    	
-      RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
-      rd.forward(request, response);
+      UtilController.forward(request, response, destino);
       
     }
 
-    private void salir(HttpServletRequest request, HttpServletResponse response) {
+    private void salir(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException {
+      
+      UtilController.resetSession(request);
+      UtilController.forward(request, response, "index.jsp");
       
     }
 

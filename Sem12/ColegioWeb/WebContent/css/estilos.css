@@ -70,3 +70,12 @@ h1{
   color: #1B4F72;
 }
 
+.egcc_error{
+	
+	font-size: 1.4em;
+	margin: 5px;
+  padding: 10px;
+  background-color: #8B0000;
+  color: white;
+  
+}
