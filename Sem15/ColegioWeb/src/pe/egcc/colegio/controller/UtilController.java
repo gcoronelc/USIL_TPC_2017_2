@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
+import pe.egcc.colegio.model.ResponseModel;
 import pe.egcc.colegio.model.Usuario;
 
 public final class UtilController {
@@ -52,6 +55,17 @@ public final class UtilController {
     response.setContentType("text/plain");
     response.setCharacterEncoding("UTF-8");
     response.getWriter().write(message);
+    
+  }
+
+  public static void sendResponseModelAJAX(HttpServletResponse response, 
+      ResponseModel bean) throws IOException {
+    
+    response.setContentType("application/json");
+    response.setCharacterEncoding("UTF-8");
+    
+    Gson gson = new Gson();
+    response.getWriter().write(gson.toJson(bean));
     
   }
 }

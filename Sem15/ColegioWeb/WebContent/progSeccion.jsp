@@ -29,7 +29,7 @@
 	           <option value="2">Secundaria</option>
 	         </select>
 	       </td>
-	       <td><input type="button" value="Nuevo" /></td>
+	       <td><input id="btnNuevo" type="button" value="Nuevo" /></td>
 	     </tr>
 	   
 	   </table>
@@ -37,6 +37,7 @@
 	</form>
 	
 	<!-- Resultado de la consulta -->
+	<h2>SECCIONES PROGRAMADAS</h2>
 	<table border="1">
 	 <thead>
 	   <tr>
@@ -49,13 +50,14 @@
 	     <th>ACCIONES</th>
 	   </tr>
 	 </thead>
+	 <tbody id="datosTabla"></tbody>
 	</table>
 	
 	
 	</div>
 	
 	
-	<div id="SECCION_NEW" class="egcc_panel"  >
+	<div id="SECCION_NEW" class="egcc_panel" style="display: none;" >
 	<h2>NUEVA SECCION</h2>
 	<form id="formNew">
 		
@@ -82,7 +84,8 @@
 			</tr>				
 		</table>
 		
-		<input id="btnProcesar" class="egcc_btn_default" type="button" value="Procesar" />
+		<input id="btnNuevoProcesar" class="egcc_btn_default" type="button" value="Procesar" />
+		<input id="btnNuevoCancelar" class="egcc_btn_default" type="button" value="Cancelar" />
 		
 	</form>
 	
@@ -92,10 +95,24 @@
 	
 	<script type="text/javascript">
 	
-		$("#btnProcesar").click(fnBtnProcesar);
+		$("#btnNuevoProcesar").click(fnBtnNuevoProcesar);
+		
+		$("#btnNuevo").click(function(){
+			
+			$("#SECCION_QUERY").hide();
+			$("#SECCION_NEW").show();
+			
+		});
+		
+		$("#btnNuevoCancelar").click(function(){
+		      
+		      $("#SECCION_QUERY").show();
+		      $("#SECCION_NEW").hide();
+		      
+	 });
 		
 		
-		function fnBtnProcesar(){
+		function fnBtnNuevoProcesar(){
 			var data = $("#formNew").serialize();
 			$.post("ProgSeccion", data, function( mensaje ){
 				
@@ -112,9 +129,42 @@
 		$("#query_nivel").change(fnHayCambio);
 		
 		function fnHayCambio(){
-			console.log("Hay cambios");
+			
+			// Datos
+			var data = $("#formQuery").serialize();
+			
+			// Lectura del servidor
+			$("#datosTabla").html("");
+			$.post("LeerSecciones", data, fnProccessResponse);
+			
 		}
 		
+		function fnProccessResponse(objJson){
+
+			if( objJson.code == 1 ){
+				
+				var lista = $.parseJSON(objJson.text);
+			    
+				$.each(lista, function (index, r) {
+				        
+				  var row = "<tr>";
+				  row += "<td>" + r.grado + "</td>";
+				  row += "<td>" + r.nomgrado + "</td>";
+				  row += "<td>" + r.seccion + "</td>";
+				  row += "<td>" + r.nombre + "</td>";
+				  row += "<td>" + r.vacantes + "</td>";
+				  row += "<td>" + r.matriculados + "</td>";
+				  row += "<td><a href='#'>Falta</a></td>";
+				  row += "</tr>";         
+				  $("#datosTabla").append( row );
+				        
+				});
+
+			} else {
+				alert(objJson.text);
+			}
+			
+		}
 		
 	</script>
 

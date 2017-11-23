@@ -1,17 +1,23 @@
 package pe.egcc.colegio.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
+import pe.egcc.colegio.model.ResponseModel;
 import pe.egcc.colegio.model.Usuario;
 import pe.egcc.colegio.service.ColegioService;
 
 
-@WebServlet(urlPatterns = {"/ProgSeccion"})
+@WebServlet(urlPatterns = {"/LeerSecciones","/ProgSeccion"})
 public class ColegioController extends HttpServlet {
 	
   private static final long serialVersionUID = 1L;
@@ -24,10 +30,47 @@ public class ColegioController extends HttpServlet {
     case "/ProgSeccion":
       progSeccion(request, response);
       break;
-
+    case "/LeerSecciones":
+      leerSecciones(request, response);
+      break;
     }
 	
 	}
+	
+	
+	
+
+  private void leerSecciones(HttpServletRequest request, 
+      HttpServletResponse response) throws IOException {
+    
+    // Datos
+    int periodo = Integer.parseInt(request.getParameter("periodo"));
+    int nivel = Integer.parseInt(request.getParameter("nivel"));
+    
+
+    // Proceso
+    ResponseModel bean;;
+    try {
+                 
+      ColegioService colegioService = new ColegioService();
+      List<Map<String, Object>> lista;
+      lista = colegioService.leerSecciones(periodo, nivel);
+      
+      Gson gson= new Gson();
+      String jsonText = gson.toJson(lista);
+      
+      bean = new ResponseModel(1, jsonText);
+      
+    } catch (Exception e) {
+      bean = new ResponseModel( -1, e.getMessage() );
+    }
+    
+    UtilController.sendResponseModelAJAX(response, bean);
+    
+  }
+
+
+
 
   private void progSeccion(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
