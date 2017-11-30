@@ -1,0 +1,81 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-color: #DAD5D5;
+	color: #E9E9E9;
+	font-size: 14px;
+	font-family: Arial;
+	padding: 5px;
+}
+
+h1{
+	font-size: 2em;
+	color: #726969;
+	border-bottom: 2px solid #2c3e50;
+}
+
+.egcc_panel{
+	border: 2px solid #A4BDBE;
+	border-radius: 10px;
+	background-color:white;
+	color: #A4BDBE;
+	margin: 5px;
+	padding: 5px;
+}
+
+.egcc_btn_default{
+	border: 1px solid #30406E;
+  border-radius: 5px;
+  background-color: #6C6E76;
+  color:white;	
+  height: 30px;
+}
+
+.egcc_page{
+  width: 900px;
+  margin: 5px auto;
+  padding: 5px;
+  background-color: #6970AE;	
+}
+
+.egcc_header{
+  width:880px;
+  margin: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+
+.egcc_menu{
+  width: 880px;
+  margin: 5px;
+  padding: 5px;
+  background-color: #6970AE;
+  color: white;
+}
+
+.egcc_content{
+  width: 880px;
+  margin: 5px;
+  padding: 5px;
+  background-color: white;
+  color: #404C58;
+}
+
+.egcc_footer{
+  width: 880px;
+  margin: 5px;
+  padding: 5px;
+  background-color: #6C7E7A;
+  color: #0A332A;
+}
+
+.egcc_error{
+	
+	font-size: 1.4em;
+	margin: 5px;
+  padding: 10px;
+  background-color: #42507B;
+  color: white;
+  
+}
